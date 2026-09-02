@@ -40,8 +40,10 @@
     <form class="gate-prompt" id="gateForm" autocomplete="off">
       <span class="gate-ps1" aria-hidden="true">$</span>
       <input class="gate-input" id="gateInput" type="text" spellcheck="false"
-             autocomplete="off" aria-label="Type or paste the launch command"
-             placeholder="paste the command, then press enter">
+             autocomplete="off" autocapitalize="off" autocorrect="off"
+             enterkeyhint="go" aria-label="Type or paste the launch command"
+             placeholder="paste the command">
+      <button class="gate-go" id="gateGo" type="submit">Launch</button>
     </form>
 
     <p class="gate-msg" id="gateMsg" role="status"></p>

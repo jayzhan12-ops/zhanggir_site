@@ -148,6 +148,17 @@ ul { list-style: none; padding: 0; }
   display: flex; align-items: center; gap: .7rem;
   border-bottom: 1px solid var(--line); padding-bottom: .7rem;
 }
+/* A phone keyboard's return key is easy to miss, so the gate gets a real
+   button rather than relying on Enter. enterkeyhint="go" also relabels that
+   key on mobile, so both routes read as "launch". */
+.gate-go {
+  flex: none; border-radius: 6px;
+  padding: .7rem 1.15rem;
+  background: var(--accent); color: var(--on-band);
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+  transition: filter .2s;
+}
+.gate-go:hover { filter: brightness(1.1); }
 .gate-ps1 { font-family: var(--mono); color: var(--accent); flex: none; }
 .gate-input {
   flex: 1; min-width: 0; background: transparent; border: 0; color: var(--ink);
@@ -500,11 +511,32 @@ ul { list-style: none; padding: 0; }
   .nav-links { display: flex; gap: .9rem; margin-inline: auto; }
   .nav-links a { padding-block: .95rem; font-size: .6rem; }
   .nav-cta { padding: .9rem .85rem; font-size: .58rem; }
+  .gate-go { padding: .95rem 1rem; }
 
   .intro-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem .9rem; }
 
-  .bento { grid-template-columns: 1fr; grid-template-areas: "por" "edu" "quo" "qow" "lis" "int" "clk"; }
-  .cell-portrait { aspect-ratio: 4 / 5; }
+  /* Seven full-width cells stacked made the portrait 52% of a phone screen
+     and the section 2.6 screens long. Pair the short cells instead: the
+     portrait shrinks to half width beside Education, and the two small
+     footnote cells share the last row. */
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "por edu"
+      "quo quo"
+      "qow qow"
+      "lis lis"
+      "int clk";
+  }
+  .cell-portrait { aspect-ratio: 3 / 4; }
+  .cell-edu { padding: .9rem; }
+  .edu-school { font-size: 1.15rem; line-height: 1.15; }
+  .edu-major { font-size: .82rem; }
+  .edu-meta { font-size: .72rem; }
+  .cell-clock { padding: .9rem; }
+  .clock-t { font-size: 1.15rem; }
+  .cell-int { padding: .9rem; }
+  .int-list li { font-size: .74rem; padding: .25rem .6rem; }
   .cell-list li { grid-template-columns: 1fr; gap: .2rem; }
 
 
@@ -528,6 +560,8 @@ ul { list-style: none; padding: 0; }
   /* ---- thumb-sized targets ---- */
   .contact-links { gap: 0 1.4rem; }
   .contact-links a { padding-block: .95rem; }
+  /* the address shrinks to ~25px tall here; give it a real hit area */
+  .contact-mail { padding-block: .7rem; }
   .totop { padding-block: .9rem; }
 
   .foot-mid { display: none; }
