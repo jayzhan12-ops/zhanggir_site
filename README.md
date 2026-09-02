@@ -33,11 +33,13 @@ follows the cursor. The drawings are the `<svg class="pl">` blocks below.
 
 ## The CV
 
-The Résumé link expects `zhanggir-yessenaliyev-cv.pdf` beside `index.html`.
-It is deliberately **not** committed: the CV carries a phone number, and this
-site is public and indexable. Drop a phone-free export in with that filename
-and the link appears on its own — the page checks whether the file exists and
-hides the link when it doesn't.
+`zhanggir-yessenaliyev-cv.pdf` sits beside `index.html` and the Resume button
+downloads it. This copy has the phone number removed, deliberately: the site
+is public and indexable, so the published CV carries email, LinkedIn and
+GitHub only.
+
+If the file is ever missing the button hides itself rather than 404-ing, and
+reappears once a CV is back in place.
 
 ## Deploying
 
