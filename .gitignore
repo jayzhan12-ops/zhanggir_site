@@ -1,0 +1,5 @@
+# local backups - not part of the site
+.bak/
+
+# generated single-file build - rebuilt from the sources
+zhanggir-editorial.html

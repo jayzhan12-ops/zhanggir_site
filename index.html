@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhanggir — Robotics &amp; Autonomous Systems</title>
+<meta name="description" content="Zhanggir builds the perception systems that let vehicles decide where they are and what to do next. Almaty to Purdue.">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:title" content="Zhanggir — Robotics &amp; Autonomous Systems">
+<meta property="og:description" content="Perception, embedded systems, and the plumbing that keeps both alive at speed.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0e10'/><circle cx='16' cy='16' r='9' fill='none' stroke='%233fe0d0' stroke-width='3'/><circle cx='16' cy='16' r='2.5' fill='%23ffffff'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ── launch gate ───────────────────────────────────────────── -->
+<div class="gate" id="gate">
+  <div class="gate-inner">
+    <p class="gate-kicker"><i></i>no node running</p>
+
+    <h1 class="gate-title">This site isn&rsquo;t up yet.<br><em>Launch it.</em></h1>
+
+    <div class="gate-cmd">
+      <code id="gateCmd">ros2 launch zhanggir portfolio.launch.py</code>
+      <button class="gate-copy" id="gateCopy" type="button">Copy</button>
+    </div>
+
+    <form class="gate-prompt" id="gateForm" autocomplete="off">
+      <span class="gate-ps1" aria-hidden="true">$</span>
+      <input class="gate-input" id="gateInput" type="text" spellcheck="false"
+             autocomplete="off" aria-label="Type or paste the launch command"
+             placeholder="paste the command, then press enter">
+    </form>
+
+    <p class="gate-msg" id="gateMsg" role="status"></p>
+
+    <!-- Nobody should be locked out of a CV by a puzzle. -->
+    <button class="gate-skip" id="gateSkip" type="button">skip &rarr;</button>
+  </div>
+</div>
+
+<!-- ── custom cursor (pointer devices only) ──────────────────── -->
+<div class="cur-dot"  id="curDot"  aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"><span id="curLabel"></span></div>
+
+<a class="skip" href="#about">Skip to content</a>
+
+<!-- ── nav ───────────────────────────────────────────────────── -->
+<header class="nav">
+  <a class="nav-mark" href="#top" data-cursor="ZH">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9"/><circle class="pupil" cx="16" cy="16" r="2.5"/></svg>
+    <span>Zhanggir</span>
+  </a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ══ ABOUT ══ -->
+  <section class="about" id="about">
+    <!-- This carries what the removed hero used to: the name, the one-line
+         pitch, and the availability line. Without them the site would open on
+         a photo and a grid with no statement of who this is. -->
+    <div class="intro">
+      <p class="intro-kicker rise"><span class="sec-num">01</span> About</p>
+
+      <h1 class="intro-name">
+        <span class="mask"><span class="up" data-d="0">Zhanggir</span></span>
+        <span class="mask"><span class="up" data-d="1">Yessenaliyev</span></span>
+      </h1>
+
+      <p class="intro-lead">
+        <span class="mask"><span class="up" data-d="2">I build the systems that let a vehicle</span></span>
+        <span class="mask"><span class="up" data-d="3">decide <em>where it is</em> and what to do next.</span></span>
+      </p>
+
+      <dl class="intro-meta rise">
+        <div><dt>Based</dt><dd>West Lafayette, IN</dd></div>
+        <div><dt>From</dt><dd>Almaty, KZ</dd></div>
+        <div><dt>Studying</dt><dd>Robotics Eng. Tech, Purdue</dd></div>
+      </dl>
+    </div>
+
+    <div class="bento">
+      <figure class="cell cell-portrait rise">
+        <img src="headshot.jpg" alt="Zhanggir">
+        <figcaption>Zhanggir — Purdue, 2026</figcaption>
+      </figure>
+
+      <div class="cell cell-edu rise">
+        <span class="edu-label">Education</span>
+        <p class="edu-school">Purdue University</p>
+        <p class="edu-major">B.S. Robotics Engineering Technology</p>
+        <p class="edu-meta">West Lafayette, Indiana</p>
+      </div>
+
+      <div class="cell cell-quote rise">
+        <p>&ldquo;The impediment to action advances action. What stands in the way <em>becomes the way</em>.&rdquo;</p>
+        <cite>Marcus Aurelius</cite>
+      </div>
+
+      <div class="cell cell-list rise">
+        <h3>Technical skills</h3>
+        <ul>
+          <li><span>Languages</span> C++17, C, Python, MATLAB, Bash, HTML/CSS</li>
+          <li><span>AI / Vision</span> PyTorch, CUDA, OpenCV, NumPy, Ultralytics YOLO, Image Segmentation</li>
+          <li><span>Robotics</span> ROS 2, CARLA, Nav2, Gazebo, SLAM Toolbox, TF2, Localization, SLAM, Sensor Fusion, LiDAR</li>
+          <li><span>Dev tools</span> Linux, Git, Docker, CMake, RViz2, Foxglove</li>
+          <li><span>CAD / CAE</span> SOLIDWORKS, NX, Autodesk Fusion 360</li>
+        </ul>
+      </div>
+
+      <div class="cell cell-qow rise">
+        <span class="qow-label">Question of the week</span>
+        <p class="qow-q">Does the integration of humanity with AI-powered machines risk the extinction of <em>Homo sapiens</em>?</p>
+      </div>
+
+      <div class="cell cell-int rise">
+        <h3>Interests</h3>
+        <ul class="int-list">
+          <li>Boxing</li><li>MMA</li><li>Dancing</li><li>R&amp;B</li>
+        </ul>
+      </div>
+
+      <div class="cell cell-clock rise">
+        <span class="clock-l">Local time</span>
+        <span class="clock-t" id="clock">--:--:--</span>
+        <span class="clock-z">Indiana, USA</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ WORK ══ -->
+  <section class="work" id="work">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title"><span class="mask"><span class="up">Selected work</span></span></h2>
+      <p class="sec-note rise">Four things I built, and what each one taught me.</p>
+    </div>
+
+    <div class="rows" id="rows">
+
+      <a class="row" href="https://www.purdueieee.org/racing" target="_blank" rel="noopener" data-plate="kart">
+        <span class="row-idx">01</span>
+        <span class="row-title">Autonomous Kart</span>
+        <span class="row-tags">ROS 2 · ZED · LiDAR</span>
+        <span class="row-yr">2026</span>
+        <span class="row-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="row" href="https://github.com/jayzhan12-ops/nav2-custom-plugin" target="_blank" rel="noopener" data-plate="nav">
+        <span class="row-idx">02</span>
+        <span class="row-title">Nav2 Custom Controller</span>
+        <span class="row-tags">C++ · Nav2 · pluginlib · TF2</span>
+        <span class="row-yr">2026</span>
+        <span class="row-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="row" href="https://github.com/jayzhan12-ops/eagle" target="_blank" rel="noopener" data-plate="xray">
+        <span class="row-idx">03</span>
+        <span class="row-title">XRay</span>
+        <span class="row-tags">Python · OpenCV · ArUco</span>
+        <span class="row-yr">ongoing</span>
+        <span class="row-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="row" href="https://github.com/jayzhan12-ops/carla-vision-navigation" target="_blank" rel="noopener" data-plate="carla">
+        <span class="row-idx">04</span>
+        <span class="row-title">CARLA Vision Nav</span>
+        <span class="row-tags">Segmentation · Pure Pursuit</span>
+        <span class="row-yr">2026</span>
+        <span class="row-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <!-- floating preview that trails the cursor over the rows -->
+    <div class="plate" id="plate" aria-hidden="true">
+      <span class="plate-tag">VIEW</span>
+      <svg class="pl" data-for="kart" viewBox="0 0 300 220" fill="none">
+        <rect width="300" height="220" fill="var(--accent)"/>
+        <g stroke="#0b0e10" stroke-width="2.2" stroke-linecap="round">
+          <rect x="112" y="52" width="76" height="120" rx="8"/>
+          <rect x="126" y="82" width="48" height="42" rx="5"/>
+          <path d="M96 66h16M188 66h16M96 158h16M188 158h16"/>
+          <rect x="72" y="58" width="26" height="42" rx="7"/>
+          <rect x="202" y="58" width="26" height="42" rx="7"/>
+          <rect x="72" y="126" width="26" height="46" rx="7"/>
+          <rect x="202" y="126" width="26" height="46" rx="7"/>
+          <circle cx="150" cy="44" r="11"/>
+          <path d="M150 33V14M126 44l-22-14M174 44l22-14" stroke-dasharray="4 5"/>
+          <path d="M112 190h76"/>
+        </g>
+      </svg>
+
+      <svg class="pl" data-for="nav" viewBox="0 0 300 220" fill="none">
+        <rect width="300" height="220" fill="var(--accent)"/>
+        <g stroke="#0b0e10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="44" y="40" width="212" height="140" rx="6"/>
+          <path d="M74 154 C104 154 96 92 132 92 S180 132 216 66" stroke-dasharray="7 7"/>
+          <circle cx="74" cy="154" r="7" fill="#0b0e10"/>
+          <path d="M216 58l10 10-10 10" />
+          <rect x="150" y="108" width="34" height="26" rx="3"/>
+          <rect x="88" y="62" width="30" height="22" rx="3"/>
+        </g>
+      </svg>
+
+      <!-- XRay: a camera sighting an ArUco marker straight through a wall -->
+      <svg class="pl" data-for="xray" viewBox="0 0 300 220" fill="none">
+        <rect width="300" height="220" fill="var(--accent)"/>
+        <g stroke="#0b0e10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="26" y="92" width="40" height="30" rx="4"/>
+          <path d="M66 100l18-9v38l-18-9z"/>
+          <path d="M84 110h176" stroke-dasharray="6 7"/>
+          <rect x="140" y="34" width="22" height="152" rx="3"/>
+          <path d="M140 62l22-20M140 96l22-20M140 130l22-20M140 164l22-20" stroke-width="1.4" opacity=".6"/>
+          <rect x="206" y="82" width="58" height="58" rx="3"/>
+        </g>
+        <g fill="#0b0e10">
+          <rect x="216" y="92" width="12" height="12"/><rect x="242" y="92" width="12" height="12"/>
+          <rect x="229" y="105" width="12" height="12"/>
+          <rect x="216" y="118" width="12" height="12"/><rect x="242" y="118" width="12" height="12"/>
+        </g>
+      </svg>
+
+      <!-- CARLA: a road to the horizon, with what the segmenter picked out -->
+      <svg class="pl" data-for="carla" viewBox="0 0 300 220" fill="none">
+        <rect width="300" height="220" fill="var(--accent)"/>
+        <g stroke="#0b0e10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M34 74h232"/>
+          <path d="M92 192L136 74M208 192L164 74"/>
+          <path d="M150 92v14M150 120v18M150 152v22" stroke-dasharray="0"/>
+          <rect x="44" y="88" width="36" height="28" rx="3" stroke-dasharray="5 5"/>
+          <rect x="220" y="98" width="38" height="32" rx="3" stroke-dasharray="5 5"/>
+          <rect x="126" y="160" width="48" height="28" rx="6"/>
+          <path d="M138 160v-12h24v12"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section class="contact" id="contact">
+    <span class="sec-num">03</span>
+    <p class="contact-kick rise">Currently looking for a robotics or perception internship.</p>
+
+    <a class="contact-mail" href="mailto:zyessena@purdue.edu">
+      <span class="mask"><span class="up">zyessena@purdue.edu</span></span>
+    </a>
+
+    <div class="contact-links rise">
+      <a href="https://github.com/jayzhan12-ops" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/zhanggir-yessenaliyev" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="zhanggir-yessenaliyev-cv.pdf" download="Zhanggir-Yessenaliyev-CV.pdf" data-resume>Résumé ↓</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Zhanggir</span>
+  <span class="foot-mid">Built by hand</span>
+  <button class="totop" id="toTop" type="button" data-magnetic>Back to top ↑</button>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
