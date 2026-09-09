@@ -12,6 +12,8 @@ Personal site — Zhanggir Yessenaliyev. Robotics and autonomous systems, Purdue
 | `styles.css` | all styling; the palette is the token block at the top of `:root` |
 | `script.js` | gate, cursor, reveals, work plates, clock |
 | `headshot.jpg` | portrait, 1000×989 |
+| `little-blazer.html` | case study page for the NX engine assembly |
+| `little-blazer-nx.png` | the NX capture, 1919×1023 |
 
 No build step, no dependencies, no framework. Open `index.html` and it runs.
 The only external request is Google Fonts (Instrument Serif + Space Grotesk);

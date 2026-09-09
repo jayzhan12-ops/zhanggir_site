@@ -469,6 +469,112 @@ ul { list-style: none; padding: 0; }
 .toast.show { opacity: 1; transform: translateY(0); }
 
 /* ==========================================================================
+   PROJECT PAGE
+   A single case study. Same tokens and type as the index; the one new problem
+   is presenting a bright application screenshot on a dark ground without it
+   glaring — hence the frame, the caption rail, and the inset hairline.
+   ========================================================================== */
+.page-project main { padding-top: 1px; }   /* contain the section's top margin */
+
+.proj {
+  max-width: 72rem; margin-inline: auto;
+  padding: clamp(6.5rem, 12vw, 9rem) var(--pad) clamp(4rem, 9vw, 7rem);
+}
+
+.proj-kicker { margin-bottom: clamp(1rem, 2.5vw, 1.6rem); color: var(--muted); }
+.proj-kicker a { color: var(--accent); }
+.proj-kicker a:hover { text-decoration: underline; }
+.proj-kicker .sep { opacity: .4; margin-inline: .35rem; }
+
+.proj-title {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.2rem, 6.5vw, 5rem); line-height: .98; letter-spacing: -.02em;
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.proj-lead {
+  font-family: var(--display); font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  line-height: 1.25; max-width: 34ch; color: var(--ink);
+  margin-bottom: clamp(1.6rem, 3.5vw, 2.4rem);
+}
+
+.proj-meta {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem 1.6rem;
+  padding-block: clamp(1rem, 2.5vw, 1.5rem);
+  border-block: 1px solid var(--line);
+  margin-bottom: clamp(2rem, 4.5vw, 3rem);
+}
+.proj-meta dt { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.proj-meta dd { font-size: .95rem; }
+
+/* ---------- the screenshot ---------- */
+.shot { margin-bottom: clamp(2.2rem, 5vw, 3.4rem); }
+.shot-frame {
+  display: block; position: relative;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--paper-2);
+  padding: 8px;
+  overflow: hidden;
+  transition: border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.shot-frame:hover { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(63,224,208,.25), 0 24px 60px -30px rgba(0,0,0,.9); }
+.shot-frame img { width: 100%; height: auto; border-radius: 4px; display: block; }
+
+.shot figcaption {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  margin-top: .7rem;
+}
+.shot-cap { font-size: .85rem; color: var(--muted); max-width: 52ch; }
+.shot-hint { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); flex: none; }
+
+/* If the capture is missing, show a labelled placeholder instead of a broken
+   image icon — see the shot module in script.js. */
+.shot.missing .shot-frame { pointer-events: none; }
+.shot.missing img { display: none; }
+.shot.missing .shot-frame::after {
+  content: "Capture unavailable";
+  display: grid; place-items: center; text-align: center;
+  aspect-ratio: 16 / 9; padding: 2rem;
+  font-size: .8rem; color: var(--muted);
+  border: 1px dashed var(--line); border-radius: 4px;
+}
+
+/* ---------- body ---------- */
+.proj-body {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 4vw, 3.2rem);
+  margin-bottom: clamp(2.4rem, 5vw, 3.4rem);
+}
+.proj-col h2 {
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; margin-bottom: 1rem;
+}
+.proj-list { display: grid; gap: .85rem; }
+.proj-list li {
+  position: relative; padding-left: 1.15rem;
+  font-size: 1.02rem; line-height: 1.6; color: var(--ink);
+}
+.proj-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: var(--accent); }
+
+.parts { display: grid; }
+.parts li {
+  display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline;
+  padding: .55rem 0; border-top: 1px solid var(--line);
+  font-size: .95rem;
+}
+.parts li:first-child { border-top: 0; }
+.pn { font-family: var(--mono); font-size: .74rem; color: var(--accent); }
+.parts-note { margin-top: .9rem; font-size: .8rem; color: var(--muted); }
+
+.proj-back {
+  display: inline-block; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  font-weight: 500; color: var(--muted); padding-block: .5rem;
+  transition: color .25s;
+}
+.proj-back:hover { color: var(--accent); }
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 .foot {
@@ -482,6 +588,8 @@ ul { list-style: none; padding: 0; }
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 62rem) {
+  .proj-body { grid-template-columns: 1fr; }
+  .proj-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .intro-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -499,6 +607,11 @@ ul { list-style: none; padding: 0; }
 }
 
 @media (max-width: 40rem) {
+  .shot-frame { padding: 5px; border-radius: 7px; }
+  .proj-kicker a { display: inline-block; padding-block: .75rem; }
+  .proj-back { padding-block: .9rem; }
+  .shot figcaption { gap: .3rem; }
+  .parts li { grid-template-columns: 4.6rem 1fr; gap: .7rem; font-size: .88rem; }
   /* ---- navigation ----
      The section links used to be hidden here, which left a phone with no way
      to reach Work or Contact at all. They stay; the wordmark drops to its icon

@@ -451,6 +451,20 @@
       .catch(function () { /* stays hidden */ });
   })();
 
+
+  /* ========================================================= SHOT ========
+     A screenshot that has not been dropped in yet would render as a broken
+     image icon on a live page. Fail to a labelled placeholder instead.
+  */
+  (function shot() {
+    var fig = document.getElementById('shot');
+    var img = document.getElementById('shotImg');
+    if (!fig || !img) return;
+    function miss() { fig.classList.add('missing'); }
+    if (img.complete && img.naturalWidth === 0) miss();
+    img.addEventListener('error', miss);
+  })();
+
   (function chrome() {
     var nav = document.querySelector('.nav');
     if (nav) {
